@@ -1,12 +1,8 @@
-"""A module to implement make_multiplier """
-from typing import Union, Tuple
+#!/usr/bin/env python3
+"""A module to implement element_length """
+from typing import List, Tuple, Iterable, Sequence
 
 
-def make_multiplier(multiplier: float) -> callable:
-    """ A function that returns a function multiplier """
-    def multiply(n: float) -> float:
-        """ A function that multiplies a float """
-        return n * multiplier
-    return multiply
-
-
+def element_length(lst: Iterable[Sequence]) -> List[Tuple[Sequence, int]]:
+    """ Returns a list of tuples of elements and their lengths """
+    return [(i, len(i)) for i in lst]
