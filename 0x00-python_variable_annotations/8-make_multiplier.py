@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """A module to implement make_multiplier """
 from typing import Callable
 
