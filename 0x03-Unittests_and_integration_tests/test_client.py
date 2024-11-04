@@ -26,3 +26,11 @@ class TestGithubOrgClient(unittest.TestCase):
         with patch('client.GithubOrgClient.org') as mock:
             mock.return_value = {'repos_url': 'http://example.com'}
             self.assertEqual(test_org._public_repos_url, 'http://example.com')
+
+    def test_public_repos(self):
+        """ TestGithubOrgClient.public_repos method """
+        test_org = GithubOrgClient('google')
+        with patch('client.GithubOrgClient.repos_payload') as mock:
+            mock.return_value = [{'name': 'repo1'}, {'name': 'repo2'}]
+            self.assertEqual(test_org.public_repos(), ['repo1', 'repo2'])
+            self.assertEqual(test_org.public_repos('MIT'), ['repo1', 'repo2'])
